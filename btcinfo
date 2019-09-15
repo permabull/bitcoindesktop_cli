@@ -1,0 +1,31 @@
+#!/bin/bash
+
+clear
+
+echo
+
+echo "----------"
+
+blockheight.py
+
+echo
+
+dollarprice.py
+
+echo
+
+satsperdollar.py
+
+echo
+
+fee.py
+
+echo
+
+halveningcountdown.py
+
+echo
+
+mintedcoins.py
+
+echo "----------"
