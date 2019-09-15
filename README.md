@@ -2,4 +2,4 @@
 
 simple for the terminal
 
-![guin](https://user-images.githubusercontent.com/45722893/64928720-84c99c80-d81c-11e9-95e4-33eb4b06e580.png)
+![Screenshot_20190916_005611](https://user-images.githubusercontent.com/45722893/64928756-cfe3af80-d81c-11e9-826a-b756664ac1cb.png)
