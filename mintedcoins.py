@@ -2,46 +2,46 @@
 import json
 from urllib.request import urlopen
 
-urlBlockHeight = urlopen('https://api.blockcypher.com/v1/btc/main').read()
-resultBlockHeight = json.loads(urlBlockHeight)
-blockheight = int(resultBlockHeight['height'])
+url_blockheight = urlopen('https://api.blockcypher.com/v1/btc/main').read()
+result_blockheight = json.loads(url_blockheight)
+blockheight = int(result_blockheight['height'])
 
-urlPrice = urlopen('https://www.bitstamp.net/api/ticker/').read()
-resultUrlPrice = json.loads(urlPrice)
-dollarPerBtc = float(resultUrlPrice['ask'])
+url_price = urlopen('https://www.bitstamp.net/api/ticker/').read()
+result_url_price = json.loads(url_price)
+dollar_per_btc = float(result_url_price['ask'])
 
-blockHalving  = 210000
-firstHalving  = 210000
-secondHalving = 420000
-thirdHalving  = 630000
-fourthHalving = 840000
+block_halving  = 210000
+first_halving  = 210000
+second_halving = 420000
+third_halving  = 630000
+fourth_halving = 840000
 
-hardCap = 21000000
+bitcoin_hardcap = 21000000
 
-totalCoins = 0;
+total_coins = 0;
 
-if blockheight > firstHalving:
-	totalCoins = blockHalving * 50
+if blockheight > first_halving:
+	total_coins = block_halving * 50
 
-if blockheight > secondHalving:
-	totalCoins = totalCoins + blockHalving * 25
+if blockheight > second_halving:
+	total_coins = total_coins + block_halving * 25
 
-if blockheight > thirdHalving:
-	totalCoins = totalCoins + blockHalving * 12.5
+if blockheight > third_halving:
+	total_coins = total_coins + block_halving * 12.5
 
-elif blockheight < thirdHalving:
-	temp = blockheight - secondHalving
-	totalCoins = totalCoins + (temp * 12.5)
+elif blockheight < third_halving:
+	temp = blockheight - second_halving
+	total_coins = total_coins + (temp * 12.5)
 
-if blockheight > fourthHalving:
-	totalCoins = totalCoins + blockHalving * 6.25
+if blockheight > fourth_halving:
+	total_coins = total_coins + block_halving * 6.25
 
-elif blockheight < fourthHalving and blockheight > thirdHalving:
-	temp = blockheight - thirdHalving
-	totalCoins = totalCoins + (temp * 6.25)
+elif blockheight < fourth_halving and blockheight > third_halving:
+	temp = blockheight - third_halving
+	total_coins = total_coins + (temp * 6.25)
 
-percentageMined = totalCoins / hardCap * 100
+percentage_mined = total_coins / bitcoin_hardcap * 100
 
-print ("Bitcoins in circulation :",f"{int(totalCoins):,d}",", {0:.2f}%".format(round(percentageMined,2)))
-print ("Bitcoins left to mine  :",f"{int(hardCap - totalCoins):,d}")
-print ("Market capitalization :",f"{int(totalCoins * dollarPerBtc):,d}$")
+print (f"Bitcoins in circulation : {int(total_coins):,d}",", {0:.2f}%".format(round(percentage_mined,2)))
+print (f"Bitcoins left to mine  : {int(bitcoin_hardcap - total_coins):,d}")
+print (f"Market capitalization : {int(total_coins * dollar_per_btc):,d}$")

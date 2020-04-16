@@ -2,8 +2,8 @@
 import json
 from urllib.request import urlopen
 
-urlPrice = urlopen('https://www.bitstamp.net/api/ticker/').read()
-resultUrlPrice = json.loads(urlPrice)
-dollarPerBtc = float(resultUrlPrice['ask'])
+url_price = urlopen('https://www.bitstamp.net/api/ticker/').read()
+result_url_price = json.loads(url_price)
+dollarPerBtc = float(result_url_price['ask'])
 
-print("Price : {:.0f}$".format(dollarPerBtc))
+print(f"Price : {int(dollarPerBtc):.0f}$")
