@@ -3,8 +3,9 @@
 import json
 from urllib.request import urlopen
 
-urlBlockHeight = urlopen('https://api.blockcypher.com/v1/btc/main').read()
-resultBlockHeight = json.loads(urlBlockHeight)
-blockheight = int(resultBlockHeight['height'])
+url_blockheight = urlopen('https://api.blockcypher.com/v1/btc/main').read()
+result_blockheight = json.loads(url_blockheight)
+blockheight = int(result_blockheight['height'])
 
-print("Blockheight : ", blockheight)
+print(f"Blockheight : {blockheight}")
+
